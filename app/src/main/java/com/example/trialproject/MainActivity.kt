@@ -4,6 +4,7 @@ package com.example.trialproject
     Quindi devono avere solo test strumentali e non
     Proviamo anche a mettere un semplice caricamento di libreria da progetto in un file yaml!!!
     direttamente da IDE
+
  */
 
 import androidx.appcompat.app.AppCompatActivity
