@@ -1,3 +1,18 @@
+#on: [push]
+#
+#jobs:
+#  hello_world_job:
+#    runs-on: ubuntu-latest
+#    name: A job to say hello
+#    steps:
+#      - name: Hello world action step
+#        id: hello
+#        uses: giuseppegargani/first_custom_action@0.0.5
+#        with:
+#          who-to-greet: 'Mona the Octocat'
+#      # Use the output from the `hello` step
+#      - name: Get the output time
+#        run: echo "The time was ${{ steps.hello.outputs.time }}"
 on: [push]
 
 jobs:
@@ -5,11 +20,10 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-      - name: Hello world action step
-        id: hello
-        uses: giuseppegargani/first_custom_action@0.0.4
+      - uses: actions/checkout@v3
+      - id: foo
+        uses: actions/hello-world-composite-action@v1
         with:
           who-to-greet: 'Mona the Octocat'
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+        shell: bash
