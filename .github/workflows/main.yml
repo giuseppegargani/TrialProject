@@ -20,7 +20,7 @@ on: [push]
 jobs:
   hello_world_job:
     runs-on: macOs-latest
-      permissions:
+    permissions:
         checks: write
         contents: read
         issues: read
