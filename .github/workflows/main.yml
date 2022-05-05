@@ -32,7 +32,7 @@ jobs:
       - id: foo
         # poi si deve ricaricare esternamente!!!!!!
         #uses: giuseppegargani/first_custom_action@0.0.10
-        uses: giuseppegargani/first_custom_action@0.0.11
+        uses: giuseppegargani/first_custom_action@0.0.12
         with:
           who-to-greet: 'Mona the Octocat'
           java-version: 11
