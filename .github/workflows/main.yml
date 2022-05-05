@@ -53,16 +53,17 @@ jobs:
         with:
           name: test
 
-      - name: Verifica File
-        run: |
-          ls
-          cat ./JsonTestReport.json
-          cat JsonTestReport.json
-        #`cat JsonTestReport.json`
-
-      - name: Operazioni Firebase DB
-        uses: w9jds/firebase-action@master
-        with:
-          args: database:set --force --debug  --project databasericette-beeb7 /giuseppegargani/ecchime JsonTestReport.json
-        env:
-          GCP_SA_KEY: ${{ secrets.FIREBASE_CREDENTIALS }}
+#      - name: Verifica File
+#        run: |
+#          ls
+#          cat ./JsonTestReport.json
+#          cat JsonTestReport.json
+#        #`cat JsonTestReport.json`
+#
+#      - name: Operazioni Firebase DB
+#        uses: w9jds/firebase-action@master
+#        with:
+#          args: database:set --force --debug  --project databasericette-beeb7 /giuseppegargani/ecchime JsonTestReport.json
+#        env:
+#          GCP_SA_KEY: ${{ secrets.FIREBASE_CREDENTIALS }}
+      - uses: giuseppegargani/second_custom_action@0.0.1
