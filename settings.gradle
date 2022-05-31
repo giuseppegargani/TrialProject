@@ -1,3 +1,38 @@
+/* INDICAZIONI:
+    - SUFFICIENTE IL SOLO FILE .JAR PER CARICARE IL PLUGIN
+    - DA MavenLocal() necessario il solo plugin management!!! con repositories e mavenLocal()
+    - Se si vuole caricare da libreria jar locale in una cartellina occorre aggiungere flatDir SIA IN repositories che in buildscript
+ */
+
+pluginManagement {
+        repositories {
+            /*flatDir {
+                dirs './' //this way we can find the .aar file in libs folder
+            }*/
+            mavenCentral()
+            //mavenLocal()
+            //maven { url "https://plugins.gradle.org/m2/" }
+            gradlePluginPortal()
+            flatDir {
+                dirs './libs'
+            }
+        }
+    buildscript {
+        repositories {
+            flatDir {
+                dirs './libs'
+            }
+        }
+        dependencies {
+            classpath ':report:0.01'
+        }
+    }
+}
+/*dependencies {
+    //classpath ':report-0.01.jar:0.0.1'
+}*/
+
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -5,6 +40,7 @@ dependencyResolutionManagement {
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
         maven { url 'https://jitpack.io' }
+        //mavenLocal()
     }
 }
 rootProject.name = "TrialProject"
