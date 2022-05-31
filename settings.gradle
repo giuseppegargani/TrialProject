@@ -2,6 +2,7 @@
     - SUFFICIENTE IL SOLO FILE .JAR PER CARICARE IL PLUGIN
     - DA MavenLocal() necessario il solo plugin management!!! con repositories e mavenLocal()
     - Se si vuole caricare da libreria jar locale in una cartellina occorre aggiungere flatDir SIA IN repositories che in buildscript
+    - PER MAVEN E INDICE SU PATH FINO A REPOSITORY E AGGIUNTA MAVENCENTRAL()!!!!
  */
 
 pluginManagement {
@@ -12,19 +13,27 @@ pluginManagement {
             mavenCentral()
             //mavenLocal()
             //maven { url "https://plugins.gradle.org/m2/" }
-            gradlePluginPortal()
-            flatDir {
-                dirs './libs'
+            maven {
+                url 'file://C:/Users/giuse/.m2/repository'
             }
+            gradlePluginPortal()
+            /*flatDir {
+                dirs './libs'
+            }*/
         }
     buildscript {
         repositories {
-            flatDir {
+            /*flatDir {
                 dirs './libs'
+            }*/
+            mavenCentral()
+            maven {
+                url 'file://C:/Users/giuse/.m2/repository'
             }
         }
         dependencies {
-            classpath ':report:0.01'
+            //classpath ':report:0.01'   // PER FLATDIR
+            classpath 'com.github.giuseppegargani:report:0.01'   //PER MAVEN E INDICE SU PATH FINO A REPOSITORY E AGGIUNTA MAVENCENTRAL()!!!!
         }
     }
 }
