@@ -44,4 +44,5 @@ dependencies {
 
     //per stampa report
     implementation 'com.github.giuseppegargani:JsonReport:0.0.1'
+    implementation 'com.github.giuseppegargani:reportplugin:0.03'
 }
