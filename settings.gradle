@@ -10,6 +10,7 @@ pluginManagement {
             /*flatDir {
                 dirs './' //this way we can find the .aar file in libs folder
             }*/
+            jcenter()
             mavenCentral()
             //mavenLocal()
             //maven { url "https://plugins.gradle.org/m2/" }
@@ -31,6 +32,7 @@ pluginManagement {
                 //dirs './libs'
                 dirs 'https://drive.google.com/file/d/1B_IuNLHf03ZpKirWBWE0cZ8Vnm2G46GN/view?usp=sharing'
             }*/
+            jcenter()
             mavenCentral()
             maven {
                 url 'file://C:/Users/giuse/.m2/repository'
@@ -42,7 +44,8 @@ pluginManagement {
         dependencies {
             //classpath ':report:0.01'   // PER FLATDIR
             //classpath 'com.github.giuseppegargani:report:0.01'   //PER MAVEN E INDICE SU PATH FINO A REPOSITORY E AGGIUNTA MAVENCENTRAL()!!!!
-            classpath 'com.github.giuseppegargani.reportplugin:report:0.03'
+            classpath 'com.github.giuseppegargani.reportplugin:report:0.05'
+            classpath 'com.github.giuseppegargani:documenti:0.05'
         }
     }
 }
