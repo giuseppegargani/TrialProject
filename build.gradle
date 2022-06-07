@@ -18,7 +18,7 @@ buildscript {
 }
 
 plugins {
-    id 'com.github.giuseppegargani.report' apply false
+    id 'com.github.giuseppegargani.report' version('0.05') apply false
 }
 
 task clean(type: Delete) {

@@ -12,14 +12,14 @@ pluginManagement {
             }*/
             jcenter()
             mavenCentral()
-            //mavenLocal()
+            mavenLocal()
             //maven { url "https://plugins.gradle.org/m2/" }
             maven {
                 url 'file://C:/Users/giuse/.m2/repository'
                 //url 'https://drive.google.com/drive/folders/1unFh-RzZ-5B1GKe4ccS8d7UBSfoCiUCt?usp=sharing'
                 //url 'https://drive.google.com/file/d/1B_IuNLHf03ZpKirWBWE0cZ8Vnm2G46GN/view?usp=sharing'
             }
-            maven { url 'https://jitpack.io' }
+            //maven { url 'https://jitpack.io' }
             gradlePluginPortal()
             /*flatDir {
                 //dirs './libs'
@@ -39,13 +39,13 @@ pluginManagement {
                 //url 'https://drive.google.com/drive/folders/1unFh-RzZ-5B1GKe4ccS8d7UBSfoCiUCt?usp=sharing'
                 //url 'https://drive.google.com/file/d/1B_IuNLHf03ZpKirWBWE0cZ8Vnm2G46GN/view?usp=sharing'
             }
-            maven { url 'https://jitpack.io' }
+            //maven { url 'https://jitpack.io' }
         }
         dependencies {
             //classpath ':report:0.01'   // PER FLATDIR
             //classpath 'com.github.giuseppegargani:report:0.01'   //PER MAVEN E INDICE SU PATH FINO A REPOSITORY E AGGIUNTA MAVENCENTRAL()!!!!
-            classpath 'com.github.giuseppegargani.reportplugin:report:0.05'
-            classpath 'com.github.giuseppegargani:documenti:0.05'
+            //classpath 'com.github.giuseppegargani.reportplugin:report:0.05'
+            //classpath 'com.github.giuseppegargani:documenti:0.05'
         }
     }
 }
@@ -60,8 +60,8 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
-        maven { url 'https://jitpack.io' }
-        //mavenLocal()
+        //maven { url 'https://jitpack.io' }
+        mavenLocal()
     }
 }
 rootProject.name = "TrialProject"

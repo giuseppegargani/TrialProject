@@ -42,6 +42,7 @@ android {
     }
     task copyDependencies(type: Copy) {
         from configurations.myArtifact
+        println("Directory di salvataggio:  $buildDir")
         into "$buildDir"
     }
 
