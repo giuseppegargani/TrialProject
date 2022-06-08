@@ -36,16 +36,54 @@ android {
         myArtifact
     }
 
-    dependencies {
+    /*dependencies {
         myArtifact group: 'com.github.giuseppegargani', name: 'documenti',
                 version: '0.05', transitive: false
-    }
+    }*/
+
     task copyDependencies(type: Copy) {
         from configurations.myArtifact
         println("Directory di salvataggio:  $buildDir")
         into "$buildDir"
     }
 
+    /* COPY FROM URL
+     */
+
+    task peppe() {
+
+            //def target = uri("https://raw.githubusercontent.com/gradle/gradle/master/README.md")
+            //def target = uri("https://www.dropbox.com/s/dfjhwouxxza69hn/documenti-0.05.txt?dl=0")
+            def downloadedFile = ("${file(buildDir)}/documenti-0.05.txt")
+
+            /*doLast {
+
+                ant.invokeMethod("get", mapOf("src": target, "dest": downloadedFile, "verbose": true))
+
+                logger.lifecycle("Downloaded Gradle README.md: ${downloadedFile.readText()}")
+            }*/
+        //ant.invokeMethod("get", mapOf("src": target, "dest": downloadedFile, "verbose": true))
+
+        //AntBuilder ant = new AntBuilder() ;
+        /*ant.invokeMethod( "get", new HashMap() {{
+            put( "src", target ) ;
+            put( "dest", downloadedFile ) ;
+            put ( "verbose", true)
+        }} ) ;*/
+
+        }
+
+
+    task downloadFile() {
+        doLast {
+            def address='https://www.dropbox.com/s/dfjhwouxxza69hn/documenti-0.05.txt'
+            def target=file(buildDir)
+
+            new File("${address.tokenize('/')[-1]}").withOutputStream { out ->
+                new URL(address).withInputStream { from ->  out << from; }
+            }
+        }
+    }
 }
 
 dependencies {
