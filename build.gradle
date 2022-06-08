@@ -16,6 +16,7 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.20"
         //classpath ':report-0.01.jar:0.0.1'
         classpath 'com.github.giuseppegargani:report:0.01'
+        classpath "de.undercouch:gradle-download-task:5.1.0"
         //myArtifact 'com.github.giuseppegargani:documenti:0.05'
 
         // NOTE: Do not place your application dependencies here; they belong

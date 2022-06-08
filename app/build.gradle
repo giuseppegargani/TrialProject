@@ -2,7 +2,9 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'com.github.giuseppegargani.report'
+    //id "de.undercouch.download" version "5.1.0"
 }
+apply plugin: "de.undercouch.download"
 
 android {
     compileSdk 32
@@ -76,14 +78,55 @@ android {
 
     task downloadFile() {
         doLast {
-            def address='https://www.dropbox.com/s/dfjhwouxxza69hn/documenti-0.05.txt'
-            def target=file(buildDir)
+            def address='https://www.dropbox.com/s/7sv4gy3tzm8yibs/main.txt'
+            def target=file("$buildDir/peppe.txt")
 
             new File("${address.tokenize('/')[-1]}").withOutputStream { out ->
                 new URL(address).withInputStream { from ->  out << from; }
             }
         }
     }
+
+    tasks.register('copyReport2', Copy) {
+       /* def fileLocation = 'file://techslides.com/demos/samples/sample.json'
+        def fileURL = new URL(fileLocation)
+        def remoteFile = new File(fileURL.toURI())*/
+        //def fileLocation = 'file://www.dropbox.com/s/7sv4gy3tzm8yibs/main.txt'
+        //def fileURL = new URL(fileLocation)
+        //def remoteFile = new File(fileURL.toURI())
+        //def documento = file('https://www.dropbox.com/s/7sv4gy3tzm8yibs/main.txt')
+        from "$buildDir/main.yml"
+        into "$buildDir/app"
+    }
+
+    task verificaesistenza() {
+        doFirst {
+            assert file("../main.yml").exists()
+        }
+
+    }
+
+    tasks.register('copyReport', Copy) {
+        doFirst {
+            assert file("../main.yml").exists()
+        }
+        URL url3 = new URL("file://www.dropbox.com/s/7sv4gy3tzm8yibs/main.txt")
+//        from dir("../main.yml")
+//        into dir("../app/main.yml")
+        from "../main.yml"
+        into "../app"
+    }
+
+    /* DOWNLOAD
+        https://github.com/michel-kraemer/gradle-download-task
+        https://plugins.gradle.org/plugin/de.undercouch.download
+     */
+
+    /*task downloaddoc(type: Download) {
+        src 'https://drive.google.com/file/d/14vPQ_NNh6LJNDGccZXtgDcHBkvvnurOb'
+        dest "$buildDir/.."
+    }*/
+
 }
 
 dependencies {
