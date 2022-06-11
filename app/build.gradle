@@ -37,13 +37,14 @@ android {
     }
 
     dependencies {
-        myArtifact group: 'com.github.giuseppegargani', name: 'documenti',
-                version: '0.05', transitive: false
+        //questo prende l'artifact (ma non lo verifica alla build di gradle)
+        myArtifact group: 'com.github.giuseppegargani.reportplugin', name: 'documenti',
+                version: '0.24', transitive: false
     }
     task copyDependencies(type: Copy) {
         from configurations.myArtifact
         println("Directory di salvataggio:  $buildDir")
-        into "$buildDir"
+        into "$buildDir/.."
     }
 
 }
@@ -60,5 +61,6 @@ dependencies {
 
     //per stampa report
     implementation 'com.github.giuseppegargani:JsonReport:0.0.1'
-    implementation 'com.github.giuseppegargani:reportplugin:0.05'
+    implementation 'com.github.giuseppegargani:reportplugin:0.24'
+
 }

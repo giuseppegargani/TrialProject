@@ -12,14 +12,21 @@ pluginManagement {
             }*/
             jcenter()
             mavenCentral()
-            mavenLocal()
+            //mavenLocal()
             //maven { url "https://plugins.gradle.org/m2/" }
             maven {
                 url 'file://C:/Users/giuse/.m2/repository'
                 //url 'https://drive.google.com/drive/folders/1unFh-RzZ-5B1GKe4ccS8d7UBSfoCiUCt?usp=sharing'
                 //url 'https://drive.google.com/file/d/1B_IuNLHf03ZpKirWBWE0cZ8Vnm2G46GN/view?usp=sharing'
             }
-            //maven { url 'https://jitpack.io' }
+            mavenCentral { metadataSources { mavenPom(); artifact() } }
+            maven {
+                url 'https://jitpack.io'
+                metadataSources {
+                    //mavenPom()
+                    artifact()
+                }
+            }
             gradlePluginPortal()
             /*flatDir {
                 //dirs './libs'
@@ -33,13 +40,19 @@ pluginManagement {
                 dirs 'https://drive.google.com/file/d/1B_IuNLHf03ZpKirWBWE0cZ8Vnm2G46GN/view?usp=sharing'
             }*/
             jcenter()
-            mavenCentral()
-            maven {
+            mavenCentral { metadataSources { mavenPom(); artifact() } }
+            /*maven {
                 url 'file://C:/Users/giuse/.m2/repository'
                 //url 'https://drive.google.com/drive/folders/1unFh-RzZ-5B1GKe4ccS8d7UBSfoCiUCt?usp=sharing'
                 //url 'https://drive.google.com/file/d/1B_IuNLHf03ZpKirWBWE0cZ8Vnm2G46GN/view?usp=sharing'
+            }*/
+            maven {
+                url 'https://jitpack.io'
+                metadataSources {
+                    //mavenPom()
+                    artifact()
+                }
             }
-            //maven { url 'https://jitpack.io' }
         }
         dependencies {
             //classpath ':report:0.01'   // PER FLATDIR
@@ -58,10 +71,16 @@ dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
-        mavenCentral()
+        mavenCentral { metadataSources { mavenPom(); artifact() } }
         jcenter() // Warning: this repository is going to shut down soon
-        //maven { url 'https://jitpack.io' }
-        mavenLocal()
+        maven {
+            url 'https://jitpack.io'
+            metadataSources {
+                //mavenPom()
+                artifact()
+            }
+        }
+        //mavenLocal()
     }
 }
 rootProject.name = "TrialProject"

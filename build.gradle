@@ -10,7 +10,7 @@ buildscript {
         classpath "com.android.tools.build:gradle:7.0.3"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.20"
         //classpath ':report-0.01.jar:0.0.1'
-        classpath 'com.github.giuseppegargani:report:0.01'
+        classpath 'com.github.giuseppegargani:report:0.05'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
